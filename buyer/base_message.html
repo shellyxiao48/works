@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本信息</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        article {
+            height: 100%;
+            background: #f5f5f5;
+            position: absolute;
+            width: 100%;
+        }
+
+        article.baseMessage .wrap {
+            display: flex;
+            background: #fff;
+            width: 1230px;
+            height: 850px;
+            margin: 35px auto 20px;
+
+        }
+
+        article.baseMessage .wrap h2 {
+            padding-left: 20px;
+            font-weight: normal;
+
+        }
+
+        article.baseMessage .header {
+            background: #fff;
+        }
+
+        article.baseMessage .wrap .content {
+            padding: 20px 40px 20px 40px;
+        }
+
+        article.baseMessage .wrap .content dl.message {
+            margin-top: 30px;
+        }
+
+        .content dl dt {
+            margin: 20px 0px;
+        }
+
+        .content dl dt > span {
+            display: inline-block;
+            width: 80px;
+        }
+
+        .content .edit_btn {
+            background: red;
+            color: #fff;
+            padding: 2px 30px 2px 30px;
+            margin-left: 30px;
+        }
+    body{
+        background: #f3f3f3;
+    } 
+        .form-control {
+            display: inline;
+            width: 300px;
+        }
+
+        .content dl dt textarea {
+            border: 1px solid #ccc;
+        }
+    </style>
+
+</head>
+<body>
+<article class="baseMessage">
+    <section class="top">
+
+    </section>
+    <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+     
+    <section class="wrap">
+        <div class="sidepart">
+
+        </div>
+        <div class="content">
+            <h3>基本信息</h3>
+            <dl class="message" >
+                <dt>
+                    <span>姓名</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp周星吃
+                </dt>
+                <dt>
+                    <span>手机号</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>性别</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>公司名称</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>您的职位</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>主营行业</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>主营产品</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>经营模式</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>地区</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>详细地址</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>公司简介</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <span>公司咨讯</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp13800000
+                </dt>
+                <dt>
+                    <button class="edit_btn" onclick="edit()">
+                        编辑
+                    </button>
+                </dt>
+            </dl>
+            <form action="">
+                <dl class="edit_dl" style="display: none">
+                    <dt>
+                        <span>姓名</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text"
+                                                                                                      class="form-control"
+                                                                                                      placeholder="twitterhandle">
+                    </dt>
+                    <dt>
+                        <span>手机号</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text"
+                                                                                                       class="form-control"
+                                                                                                       placeholder="twitterhandle">
+                    </dt>
+                    <dt>
+                        <span>性别</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            先生
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option1" checked>
+                            女士
+                        </label>
+                    </dt>
+                    <dt>
+                        <span>公司名称</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text"
+                                                                                                        class="form-control"
+                                                                                                        placeholder="twitterhandle">
+                    </dt>
+                    <dt>
+                        <span>您的职位</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text"
+                                                                                                    class="form-control"
+                                                                                                    placeholder="twitterhandle">
+                    </dt>
+                    <dt>
+                        <span>主营行业</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <select
+                            class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    </dt>
+                    <dt>
+                        <span>主营产品</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text"
+                                                                                                        class="form-control"
+                                                                                                        placeholder="twitterhandle">
+                    </dt>
+                    <dt>
+                        <span>经营模式</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="model1" value="option1" checked>
+                            生产厂家
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="model2" value="option1" checked>
+                            经销批发
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="model3" value="option1" checked>
+                            商业服务
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="model4" value="option1" checked>
+                            招商代理
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadios" id="model5" value="option1" checked>
+                            其他
+                        </label>
+                    </dt>
+                    <dt>
+                        <span>地区</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text"
+                                                                                                       class="form-control"
+                                                                                                       placeholder="twitterhandle">
+                    </dt>
+                    <dt>
+                        <span>详细地址</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text"
+                                                                                                         class="form-control"
+                                                                                                         placeholder="twitterhandle">
+                    </dt>
+                    <dt>
+                    <span style="    position: relative;
+    bottom: 24px;">公司简介</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea rows="3" cols="36">
+
+</textarea>
+                    </dt>
+                    <dt>
+                    <span  style="    position: relative;
+    bottom: 24px;">公司咨讯</span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea rows="3" cols="36"></textarea>
+                    </dt>
+                    <dt>
+                        <button class="edit_btn" type="submit">
+                            保存
+                        </button>
+                        <button style="margin-left: 30px;" onclick="back()">
+                            取消
+                        </button>
+                    </dt>
+                </dl>
+            </form>
+
+
+        </div>
+    </section>
+
+</article>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".top").load("../common/topnav.html");
+      $(".sidepart").load("../common/sidebaar.html","",function(){
+            $(".side_nav_bar>li:eq(5) li:eq(0)").addClass("selected");
+
+        });
+
+    })
+
+    function edit() {
+        $('.edit_dl').css('display', 'block');
+        $('.message').css('display', 'none');
+        //alert('进入这里');
+    }
+    function back() {
+        $('.message').css('display', 'block');
+        $('.edit_dl').css('display', 'none');
+    }
+</script>
+</body>
+</html>

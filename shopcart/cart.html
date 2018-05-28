@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .searchbtn {
+            background: #f3f3f3;
+            color: #000;
+        }
+
+        .searchbtn.active {
+            background: #f81735;
+            color: #fff;
+        }
+
+        .headerwrapper {
+            width: 100%;
+            background: #fff;
+            height: 130px;
+            padding-top: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main_wrapper {
+            padding: 30px;
+            position: relative;
+
+        }
+
+        .checkboxbtn {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .shopname {
+            vertical-align: middle;
+        }
+
+        .select_header>span:nth-last-of-type(1),
+        .select_header>span:nth-last-of-type(2),
+        .select_header>span:nth-last-of-type(3) {
+            text-align: center;
+            width: 16%;
+
+        }
+
+        .outwrapper {
+            position: absolute;
+            display: none;
+        }
+
+        .out_bor_tac {
+            position: absolute;
+            top: -19px;
+            left: 12px;
+        }
+
+        .out_wrapper,
+        .out_bor_tac {
+            display: block;
+        }
+
+        .out_wrapper {
+            position: unset;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="top">
+
+        </div>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <div class="show_box">
+            <div class="show_content">
+                <div class="sidepart"></div>
+                <div class="main_wrapper">
+                    <div class="select_header">
+                        <span class="check_wrap">
+                            <!-- <input type="checkbox" name="all" id="selectAll" class="checkboxbtn selectAll"> -->
+                            <span class="checkbtn checkAll"></span>
+                            <label for="selectAll">全选</label>
+                        </span>
+                        <span>商品</span>
+                        <span>数量</span>
+                        <span>单价</span>
+                        <span>操作</span>
+
+
+                    </div>
+                    <div class="cart_container">
+                        <div class="cart_item">
+                            <div class="ca_item_title">
+                                <span class="check_wrap">
+                                    <!-- <input type="checkbox" name="all" class="checkboxbtn shop_buy_selectAll"> -->
+                                    <span class="checkbtn shopcheck"></span>
+
+                                    <strong class="shopname">三只松鼠官方旗舰店</strong>
+                                </span>
+                                <span class="ali_logo ww_online"></span>
+                                <span class="get_ti_btn">领券</span>
+
+
+                            </div>
+                            <div class="ca_item_content">
+                                <div class="ca_item_list">
+                                    <div class="intro">
+                                        <!-- <input type="checkbox" name="all" class="checkboxbtn shop_buy_selectItem"> -->
+                                        <span class="checkbtn"></span>
+
+                                        <a class="com_rn" href="#">
+                                            <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                            <div class="intro_rn">
+                                                <span class="intro_na">三只松鼠 夏威夷果265g零食坚果特产送开 夏威夷果265g零食坚果特产送开口器奶油味 </span>
+                                                <span class="intrp_de"> 颜色：A06白尺码：190/108A/XXL </span>
+                                            </div>
+
+                                        </a>
+
+
+                                    </div>
+                                    <div>
+                                        <div class="num_content">
+                                            <span class="numbtn decrease">-</span>
+                                            <input type="text" value="1" maxlength="8" class="amount_input">
+                                            <span class="numbtn increase">+</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="price_content">￥999</div>
+                                    <div>
+                                        <button type="button" class="delectItem">删除</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="cart_item">
+                            <div class="ca_item_title">
+                                <span class="check_wrap">
+                                    <!-- <input type="checkbox" name="all" class="checkboxbtn shop_buy_selectAll"> -->
+                                    <span class="checkbtn shopcheck"></span>
+
+                                    <strong class="shopname">三只松鼠官方旗舰店</strong>
+                                </span>
+                                <span class="ali_logo ww_online"></span>
+                                <span class="get_ti_btn">领券</span>
+                            </div>
+                            <div class="ca_item_content">
+                                <div class="ca_item_list">
+                                    <div class="intro">
+                                        <!-- <input type="checkbox" name="all" class="checkboxbtn shop_buy_selectItem"> -->
+                                        <span class="checkbtn check"></span>
+
+                                        <a class="com_rn" href="#">
+                                            <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                            <div class="intro_rn">
+                                                <span class="intro_na">三只松鼠 夏威夷果265g零食坚果特产送开 夏威夷果265g零食坚果特产送开口器奶油味 </span>
+                                                <span class="intrp_de"> 颜色：A06白尺码：190/108A/XXL </span>
+                                            </div>
+
+                                        </a>
+
+
+                                    </div>
+                                    <div>
+                                        <div class="num_content">
+                                            <span class="numbtn decrease">-</span>
+                                            <input type="text" value="1" maxlength="8" class="amount_input">
+                                            <span class="numbtn increase">+</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="price_content">￥999</div>
+                                    <div>
+                                        <button type="button" class="delectItem">删除</button>
+                                    </div>
+                                </div>
+                                <div class="ca_item_list">
+                                    <div class="intro">
+                                        <!-- <input type="checkbox" name="all" class="checkboxbtn shop_buy_selectItem"> -->
+                                        <span class="checkbtn"></span>
+
+                                        <a class="com_rn" href="#">
+                                            <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                            <div class="intro_rn">
+                                                <span class="intro_na">三只松鼠 夏威夷果265g零食坚果特产送开 夏威夷果265g零食坚果特产送开口器奶油味 </span>
+                                                <span class="intrp_de"> 颜色：A06白尺码：190/108A/XXL </span>
+                                            </div>
+
+                                        </a>
+
+
+                                    </div>
+                                    <div>
+                                        <div class="num_content">
+                                            <span class="numbtn decrease">-</span>
+                                            <input type="text" value="1" maxlength="8" class="amount_input">
+                                            <span class="numbtn increase">+</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="price_content">￥999</div>
+                                    <div>
+                                        <button type="button" class="delectItem">删除</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cartfooter">
+                        <span class="check_wrap">
+                            <!-- <input type="checkbox" name="all" class="selectAll checkboxbtn"> -->
+                            <span class="checkbtn checkAll"></span>
+                            <label for="selectAll">全选</label>
+                        </span>
+                        <div class="total_count">
+                            <span class="countbar">
+                                <span>合计：</span>
+                                <span>￥
+                                    <em class="totalmoney">999</em>
+                                </span>
+
+                            </span>
+
+                            <a href="confirm_order.html">结算</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="outwrapper">
+            <span class="out_bor_tac"></span>
+            <div class="out_wrapper">
+                <h4>平台优惠券</h4>
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>50</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满400可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">领取</span>
+                </div>
+                <h4>店铺优惠券</h4>
+
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>10</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满100可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">领取</span>
+                </div>
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>10</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满100可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">领取</span>
+                </div>
+            </div>
+        </div>
+        <div class="layer hide"></div>
+
+        <div class="showmodal w450">
+            <header>删除商品
+                <span class="btnclose"></span>
+            </header>
+            <div class="content">
+                <div>
+                    确定要删除该商品吗？
+                </div>
+
+                <div class="footer">
+                    <button type="button" class="status2 btn_certain">确定</button>
+
+                    <button type="button" class="btn_dismiss">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html", "", function () {
+                $(".side_nav_bar>li:eq(0)").addClass("selected");
+            });
+            // $(".footer").load("../common/footer.html");
+            // $(".side_sort_bar").load("../common/side_sort_bar.html");
+
+        });
+        $("#searchbar button").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+        // 减少
+        $(".decrease").click(function () {
+            var val = $(this).parent(".num_content").find(".amount_input").val();
+            if (isNaN(val)) {
+                $(this).parent(".num_content").find(".amount_input").val(1);
+            } else {
+                val = Math.floor(val);
+                if (val == 1) {
+                    $(this).parent(".num_content").find(".amount_input").val(1);
+                } else {
+                    $(this).parent(".num_content").find(".amount_input").val(--val);
+
+                }
+
+            }
+        });
+        // 增加
+        $(".increase").click(function () {
+            var val = $(this).parent(".num_content").find(".amount_input").val();
+            if (isNaN(val)) {
+                $(this).parent(".num_content").find(".amount_input").val(1);
+            } else {
+                val = Math.floor(val);
+                $(this).parent(".num_content").find(".amount_input").val(++val);
+
+            }
+        })
+        // 领券
+        $(document).on("click", ".get_ti_btn", function (e) {
+            $(".outwrapper").css({ "left": e.clientX + window.scrollX - 10 + "px", "top": e.clientY + window.scrollY + 30 + "px" });
+            $(".outwrapper").show()
+            e.stopPropagation();
+        });
+        $(document).on("click", "body", function () {
+            $(".outwrapper").hide()
+        });
+        $(document).on("click", ".checkbtn", function () {
+            if ($(this).hasClass("checkAll")) {
+                // 全选按钮
+                if (!$(this).hasClass("check")) {
+                    $(".checkbtn").addClass("check");
+
+                } else {
+                    $(".checkbtn").removeClass("check");
+                }
+
+            }
+            else if ($(this).hasClass("shopcheck")) {
+                // 店铺的全选
+                if ($(this).hasClass("check")) {
+                    // 取消
+                    $(this).removeClass("check");
+                    // 所有商品全选
+                    if ($(".checkAll").hasClass("check")) {
+                        $(".checkAll").removeClass("check")
+                    }
+                    $(this).parents(".cart_item").find(".checkbtn").removeClass("check");
+
+                } else {
+                    $(this).addClass("check");
+                    var $num2 = $(".ca_item_list .checkbtn").length;
+                    var $checknum2 = $(".ca_item_list .checkbtn.check").length;
+                    console.log($num2)
+                    console.log($checknum2)
+                    $(this).parents(".cart_item").find(".checkbtn").addClass("check");
+
+                    if ($num2 == $checknum2) {
+                        $(".checkAll").addClass("check");
+                    }
+
+                }
+            } else {
+                if ($(this).hasClass("check")) {
+                    $(this).removeClass("check");
+                    if ($(this).parents(".cart_item").find(".shopcheck").hasClass("check")) {
+                        $(this).parents(".cart_item").find(".shopcheck").removeClass("check")
+                    }
+                    if ($(".checkAll").hasClass("check")) {
+                        $(".checkAll").removeClass("check")
+                    }
+                } else {
+                    $(this).addClass("check");
+                    var $num = $(this).parents(".cart_item").find(".ca_item_list").length;
+                    var $checknum = $(this).parents(".cart_item").find(".ca_item_list .checkbtn.check").length
+                    console.log($num)
+                    console.log($checknum)
+                    if ($num == $checknum) {
+                        $(this).parents(".cart_item").find(".shopcheck").addClass("check");
+                    }
+                    var $num2 = $(".ca_item_list .checkbtn").length;
+                    var $checknum2 = $(".ca_item_list .checkbtn.check").length;
+                    console.log($num2)
+                    console.log($checknum2)
+
+                    if ($num2 == $checknum2) {
+                        $(".checkAll").addClass("check");
+                    }
+
+                }
+            }
+
+        });
+
+        // 删除
+        $(document).on("click", ".delectItem", function () {
+            $(".layer").removeClass("hide");
+            $("body").css("overflow", "hidden");
+            $(".showmodal").addClass("active");
+        });
+        $(".btnclose,.btn_dismiss").click(function () {
+            $(".layer").addClass("hide");
+            $("body").css("overflow", "");
+            $(".showmodal").removeClass("active");
+        })
+    </script>
+</body>
+
+</html>

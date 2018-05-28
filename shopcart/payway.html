@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .searchbtn {
+            background: #f3f3f3;
+            color: #000;
+        }
+
+        .searchbtn.active {
+            background: #f81735;
+            color: #fff;
+        }
+
+        .ad_itemlist {
+            display: flex;
+            align-items: center;
+        }
+
+        .headerwrapper {
+            width: 100%;
+            background: #fff;
+            height: 130px;
+            padding-top: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main_wrapper {
+            padding: 30px 0;
+            position: relative;
+
+        }
+
+        .paywrapper{
+            margin: 30px auto;
+            text-align: center;
+        }
+        .paywrapper>p{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .price_content{
+         color:    #f81735;
+        }
+        .paywrapper .qcode img{
+            width: 240px;
+            height: 240px;
+        }
+        .paywrapper .paytips{
+            width: 240px;
+            height: 45px;
+            margin: 10px auto;
+            text-align: center;
+            line-height: 45px;
+            background:#ff7674;
+            color: #fff;
+        }
+        .main_wrapper .header {
+            text-align: center;
+            height: 45px;
+            line-height: 45px;
+            font-weight: 600;
+            padding: 0 30px;
+        }
+        .tag{
+            display: inline-block;
+            padding: 3px 10px;
+            background: #f81735;
+            color: #fff;
+
+        }
+
+        .main_wrapper .header>span {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="top">
+
+        </div>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <div class="show_box">
+            <div class="show_content">
+                <div class="sidepart"></div>
+                <div class="main_wrapper">
+                    <div class="header">
+                        <span class="retback"> &lt返回</span>
+                    
+                    </div>
+                    <div class="paywrapper">
+                        <p>微信支付<span class="price_content">￥999</span></p>
+                        <div class="qcode">
+                            <img src="../img/shopimg/qcode.png" alt="">
+                        </div>
+                        <div class="paytips">
+                                微信扫一扫 立即支付
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+        </div>
+        <div class="outwrapper">
+            <span class="out_bor_tac"></span>
+            <div class="out_wrapper">
+                <h4>平台优惠券</h4>
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>50</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满400可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">
+                        <span class="checkbtn check"></span>
+                    </span>
+                </div>
+                <h4>店铺优惠券</h4>
+
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>10</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满100可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">
+                        <span class="checkbtn "></span>
+                    </span>
+                </div>
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>10</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满100可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">
+                        <span class="checkbtn "></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html", "", function () {
+                $(".side_nav_bar>li:eq(0)").addClass("selected");
+            });
+
+
+        });
+        $("#searchbar button").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+        // 减少
+        $(".decrease").click(function () {
+            var val = $(this).parent(".num_content").find(".amount_input").val();
+            if (isNaN(val)) {
+                $(this).parent(".num_content").find(".amount_input").val(1);
+            } else {
+                val = Math.floor(val);
+                if (val == 1) {
+                    $(this).parent(".num_content").find(".amount_input").val(1);
+                } else {
+                    $(this).parent(".num_content").find(".amount_input").val(--val);
+
+                }
+
+            }
+        });
+        // 增加
+        $(".increase").click(function () {
+            var val = $(this).parent(".num_content").find(".amount_input").val();
+            if (isNaN(val)) {
+                $(this).parent(".num_content").find(".amount_input").val(1);
+            } else {
+                val = Math.floor(val);
+                $(this).parent(".num_content").find(".amount_input").val(++val);
+
+            }
+        })
+        // 领券
+        $(document).on("click", ".get_ti_btn", function (e) {
+            $(".outwrapper").css({ "left": e.clientX + window.scrollX - 10 + "px", "top": e.clientY + window.scrollY + 30 + "px" });
+            $(".outwrapper").show()
+            e.stopPropagation();
+        });
+        $(document).on("click", "body", function () {
+            $(".outwrapper").hide()
+        });
+        $(document).on("click", ".ad_itemlist .checkbtn", function () {
+            $(".ad_itemlist .checkbtn.check").removeClass("check");
+
+            $(this).addClass("check")
+
+        });
+        $(".showicon").click(function () {
+            $(this).hide();
+            $(".hideicon").show();
+            $(".ad_con").css("height", "138px");
+            $(".ad_con .ad_itemlistwrapper:gt(0)").show();
+        });
+        $(".hideicon").click(function () {
+            $(this).hide();
+            $(".showicon").show()
+            $(".ad_con").css("height", "80px");
+            $(".ad_con .ad_itemlistwrapper:gt(0)").hide();
+        });
+        $(".out_wrapper").on("click", ".ti_p1", function (e) {
+
+            e.stopPropagation();
+        });
+        $(".payway").click(function () {
+            $(".payway .check").removeClass("check");
+            $(this).find(".checkbtn").addClass("check");
+        });
+        $(".retback").click(function(){
+            history.go(-1);
+        });
+    </script>
+</body>
+
+</html>

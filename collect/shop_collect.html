@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>收藏店铺</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .searchbtn {
+            background: #f3f3f3;
+            color: #000;
+        }
+
+        .searchbtn.active {
+            background: #f81735;
+            color: #fff;
+        }
+
+        .headerwrapper {
+            width: 100%;
+            background: #fff;
+            height: 130px;
+            padding-top: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main_wrapper {
+            padding: 30px;
+            position: relative;
+
+        }
+
+        .shopname {
+            margin-left: 15px;
+        }
+
+        .ca_item_list {
+            padding: 10px;
+        }
+
+        .ca_item_list .intro .com_rn {
+            align-items: center;
+        }
+
+        .ca_item_list {
+            justify-content: space-between;
+        }
+
+        .ca_item_list.selected {
+            background: #f3f3f3;
+        }
+
+        .ca_item_list.selected .myfa_op {
+            display: block;
+        }
+
+        .myfa_op {
+            display: none;
+            color: #f81735;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="top">
+
+        </div>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <div class="show_box">
+            <div class="show_content">
+                <div class="sidepart"></div>
+                <div class="main_wrapper">
+                    <div class="goodlist">
+                        <div class="ca_item_list">
+                            <div class="intro">
+                                <a class="com_rn" href="#">
+                                    <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                    <div class="shopname">Nike 耐克官方旗舰店</div>
+
+                                </a>
+
+
+                            </div>
+                            <div class="myfa_op">
+                                取消收藏
+                            </div>
+
+                        </div>
+                        <div class="ca_item_list">
+                            <div class="intro">
+                                <a class="com_rn" href="#">
+                                    <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                    <div class="shopname">Nike 耐克官方旗舰店</div>
+
+                                </a>
+
+
+                            </div>
+                            <div class="myfa_op">
+                                取消收藏
+                            </div>
+
+                        </div>
+                        <div class="ca_item_list">
+                            <div class="intro">
+                                <a class="com_rn" href="#">
+                                    <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                    <div class="shopname">Nike 耐克官方旗舰店</div>
+
+                                </a>
+
+
+                            </div>
+                            <div class="myfa_op">
+                                取消收藏
+                            </div>
+
+                        </div>
+                        <div class="ca_item_list">
+                            <div class="intro">
+                                <a class="com_rn" href="#">
+                                    <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                    <div class="shopname">Nike 耐克官方旗舰店</div>
+
+                                </a>
+
+
+                            </div>
+                            <div class="myfa_op">
+                                取消收藏
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="rate_paginator">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/pages.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html", "", function () {
+                $(".side_nav_bar>li:eq(3) li:eq(1)").addClass("selected");
+            });
+            $(".ca_item_list").click(function () {
+                $(this).addClass("selected").siblings().removeClass("selected");
+            });
+            $(".myfa_op").click(function (e) {
+                console.log("取消收藏");
+                $(this).parents(".ca_item_list").remove();
+                e.preventDefault()
+            });
+
+        });
+          // 分页
+
+          $(".rate_paginator").Page({
+            Pages: 200,
+            PageOn: function (e) {
+                console.log(e)
+             },
+            JumpOn: function (e) { console.log(e) }
+            // ActiveClass: "paging-selecte"
+        }, true);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>目录详情</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .searchbtn {
+            background: #f3f3f3;
+            color: #000;
+        }
+
+        .searchbtn.active {
+            background: #f81735;
+            color: #fff;
+        }
+
+        .headerwrapper {
+            width: 100%;
+            background: #fff;
+            height: 130px;
+            padding-top: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main_wrapper {
+            padding: 30px;
+            position: relative;
+
+        }
+
+        .retback {
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .de_content {
+            margin: 20px auto;
+            width: 670px;
+        }
+
+        .de_item_shopname {
+            color: #2e79b6;
+            font-size: 14px;
+        }
+
+        .de_content .de_item_title {
+            text-align: center;
+        }
+
+        .de_item_img_box {
+            margin: 30px auto;
+        }
+
+        .de_item_img_box img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .addremark {
+            width: 180px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #f3f3f3;
+            cursor: pointer;
+        }
+
+        .remarkarea {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .uploadImg {
+            height: 375px;
+            position: relative;
+            border: 1px solid #ccc;
+        }
+
+        #upfile {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            width: 80px;
+            z-index: 2;
+            opacity: 0;
+
+        }
+
+        .uploadfile ,.delimg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #ccc;
+            background: #fff;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+.imageBox .thumbBox
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height:300px;
+    margin-top: -150px;
+    margin-left: -150px;
+    box-sizing: border-box;
+    border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    background: none repeat scroll 0% 0% transparent;
+}
+
+.imageBox .spinner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    line-height: 400px;
+    background: rgba(0,0,0,0.7);
+}
+.imageBox{
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 1px solid #aaa;
+    background: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    cursor: move;
+}
+.cropped img{
+ width: 100%;
+ display: block;
+ 
+}
+.status2{
+    color: #fff;
+}
+.imgItem{
+    width: 100%;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #ccc;
+    position: relative;
+}
+.delimg,.editremark{
+    display: none;
+}
+.hover .delimg,.hover .fflayer{
+    display: block;
+}
+.showremark{
+    margin:20px auto;
+}
+.btn{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-default{font-size:18px;background:#f3f3f3;text-align:center}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="top">
+
+        </div>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <div class="show_box">
+            <div class="show_content">
+                <div class="sidepart"></div>
+                <div class="main_wrapper">
+                    <div class="header">
+                        <span class="retback"> &lt;返回</span>
+
+                    </div>
+                    <div class="de_content">
+                        <h3 class="de_item_title">目録标题目录标题目录标题目录标题目录标题目录标题！</h3>
+                        <p class="de_item_shopname">店铺名</p>
+                        <div class="de_item_img_box">
+                            <img src="../img/shopimg/imgbox.png" alt="">
+                        </div>
+                        <div class="showremark">
+                            <h4>备注</h4>
+                            <div class="remark"></div>
+                            <div class="croplist"></div>
+                        </div>
+                        <div class="addremark">添加备注和图片</div>
+                        
+                        <div class="editremark">
+                            <h4>添加备注</h4>
+                            <textarea rows="10" class="remarkarea"></textarea>
+
+                            <div class="cropped">
+                             
+                            </div>
+                            <div class="uploadImg">
+                                <input type="file" name="" id="upfile">
+                                <span class="uploadfile">上传图片</span>
+                            </div>
+                            <div class="footer" style="margin-top:20px;">
+                                    <button type="button" class="btn btn-primary save" style="margin-right:20px;">保存</button>
+                                    <button type="button" class="btn btn-default cancel">取消</button>
+                                    
+                                </div>
+                        </div>
+                    
+
+                       
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="layer hide"></div>
+
+        <div class="showmodal w450">
+            <header>选择裁剪区域<span class="btnclose"></span></header>
+            <div class="content">
+                <div class="imageBox">
+                        <div class="thumbBox"></div>
+                        <div class="spinner" style="display: none;">Loading...</div>
+                </div>
+
+                <div class="footer">
+                        <button type="button" class="btn_dismiss">取消</button>
+                        
+                    <button type="button" class="status2 btnCrop">保存</button>
+                    <button type="button" class="status2 " id="btnZoomIn" style="float: right">放大</button>
+                    <button type="button" class="status2" id="btnZoomOut" style="float: right">缩小</button>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/cropbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html", "", function () {
+                $(".side_nav_bar>li:eq(3) li:eq(2)").addClass("selected");
+            });
+         
+           
+
+        });
+        var options =
+        {
+            imageBox: '.imageBox',
+            thumbBox: '.thumbBox',
+            spinner: '.spinner',
+            imgSrc: ''
+        }
+       var  cropper;
+        document.querySelector('#upfile').addEventListener('change', function(){
+
+        
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                console.log(e)
+                options.imgSrc = e.target.result;
+                cropper = new cropbox(options);
+              
+            }
+            reader.readAsDataURL(this.files[0]);
+            $(".layer").removeClass("hide");
+            $("body").css("overflow", "hidden");
+            $(".showmodal").addClass("active");
+        })
+        document.querySelector('.btnCrop').addEventListener('click', function(){
+            var img = cropper.getDataURL();
+            $(".btnclose").click();
+            
+            document.querySelector('.cropped').innerHTML += '<div class="imgItem"><img src="'+img+'"><div class="fflayer"></div><span class="delimg">删除图片</span></div>';
+        });
+        $(".btnclose,.btn_dismiss").click(function () {
+            $(".layer").addClass("hide");
+            $("body").css("overflow", "");
+            $(".showmodal").removeClass("active");
+        })
+        document.querySelector('#btnZoomIn').addEventListener('click', function(){
+            cropper.zoomIn();
+        })
+        document.querySelector('#btnZoomOut').addEventListener('click', function(){
+            cropper.zoomOut();
+        });
+        $(document).on("mouseover",".cropped .imgItem",function(){
+          
+            $(this).addClass("hover");
+            
+        });
+        $(document).on("mouseout",".cropped .imgItem",function(){
+            $(this).removeClass("hover");
+        });
+        $(document).on("click",".delimg",function(){
+            $(this).parents(".imgItem").remove();
+        });
+        $(".addremark").click(function(){
+            $(this).hide();
+            $(".editremark,.croplist,.remark").show();
+        });
+        $(".save").click(function(){
+            $(".editremark").hide();
+            $(".addremark").show();
+            var str="";
+            
+            $(".croplist").append($(".cropped").html());
+            $(".remark").html($(".remarkarea").val());
+            $(".addremark").text("编辑");
+
+        });
+        $(".cancel").click(function(){
+            $(".addremark").show();
+            $(".editremark").hide();
+        });
+        $(".retback").click(function(){
+            history.go(-1);
+        });
+    </script>
+</body>
+
+</html>

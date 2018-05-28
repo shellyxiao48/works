@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="../css/cityLayout.css" type="text/css" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .searchbtn {
+            background: #f3f3f3;
+            color: #000;
+        }
+
+        .searchbtn.active {
+            background: #f81735;
+            color: #fff;
+        }
+
+        .ad_itemlist {
+            display: flex;
+            align-items: center;
+        }
+
+        .headerwrapper {
+            width: 100%;
+            background: #fff;
+            height: 130px;
+            padding-top: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main_wrapper {
+            padding: 30px 0;
+            position: relative;
+
+        }
+
+
+        .ca_item_title {
+            height: 55px;
+            line-height: 55px;
+            padding: 0 10px;
+        }
+
+        .ca_item_title .ali_logo {
+            margin: 5px 15px 0;
+        }
+
+        .get_ti_btn {
+            color: #f81735;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+
+
+        .ca_item_list {
+            display: flex;
+            align-items: center;
+        }
+
+        .ca_item_list>div {
+            width: 16%;
+            text-align: center;
+        }
+
+
+        .ca_item_list .intro {
+            width: 52%;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+        }
+
+        .ca_item_content {
+            padding: 5px 10px;
+        }
+
+        .ca_item_list .intro .com_rn {
+            display: flex;
+            margin-left: 30px;
+        }
+
+        .ca_item_list .intro .com_rn .commodity_img {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            vertical-align: middle;
+        }
+
+        .intro_rn {
+            width: 230px;
+            margin-left: 10px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+      
+
+        .delectItem:hover {
+            color: #f81735;
+
+        }
+
+        .ca_item_content>.ca_item_list:not(:nth-of-type(1)) {
+            margin-top: 30px;
+        }
+
+        .cart_container>.cart_item:not(:nth-of-type(1)) {
+            margin-top: 15px;
+        }
+
+        .cart_container {
+            background: #f3f3f3;
+        }
+
+        .cart_item {
+            background: #fff;
+            padding-bottom: 20px;
+        }
+
+        .cartfooter {
+            position: fixed;
+            bottom: 0;
+            width: 979px;
+            left: 50%;
+            margin-left: -364px;
+            border: 1px solid #ccc;
+            right: 0;
+            height: 50px;
+            line-height: 50px;
+            background: #f3f3f3;
+            padding-left: 40px;
+            z-index: 10;
+        }
+
+        .total_count {
+            float: right;
+        }
+
+        .total_count button {
+            height: 100%;
+            color: #fff;
+            background-color: #f81735;
+            width: 120px;
+            text-align: center;
+        }
+
+        .countbar {
+            margin-right: 30px;
+            font-weight: 600;
+        }
+
+        .countbar>span:nth-of-type(2) {
+            color: #f81735;
+
+        }
+
+     
+
+
+        .check_wrap label {
+            margin-left: 30px;
+        }
+
+        .ca_item_title .checkbtn {
+            top: 0;
+            left: 1px;
+        }
+
+        .ca_item_title .shopname {
+            margin-left: 30px;
+        }
+
+        .intro .checkbtn,
+            {
+            top: 20px;
+            left: 2px;
+        }
+
+        .cartfooter .checkbtn,
+            {
+            top: 0;
+            left: 3px;
+        }
+
+        .outwrapper {
+            position: absolute;
+            display: none;
+        }
+
+        .out_wrapper,
+        .out_bor_tac {
+            display: block;
+        }
+
+        .out_wrapper {
+            position: unset;
+        }
+
+        .out_bor_tac {
+            position: absolute;
+            top: -19px;
+            left: 12px;
+        }
+
+        .main_wrapper .header {
+            text-align: center;
+            height: 45px;
+            line-height: 45px;
+            font-weight: 600;
+            padding: 0 30px;
+        }
+
+        .main_wrapper .header>span {
+            float: left;
+        }
+
+        .showmodal header {
+            padding-left: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .ad_ti .addressbtn {
+            position: absolute;
+            right: 15px;
+            top: 0px;
+            background: #f81735;
+            color: #fff;
+            width: 100px;
+            text-align: center;
+        }
+
+        .ectpart,
+        .taxpart {
+            display: none;
+        }
+
+   
+
+        .ca_item_remark {
+            margin: 20px 40px;
+        }
+
+        .ca_item_remark p {
+            margin-bottom: 10px;
+        }
+
+        .ca_item_remark .item_remark {
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            padding: 0 15px;
+            border: 1px solid #ccc;
+        }
+
+        .ca_item_ticket {
+            margin-top: 40px;
+        }
+
+        .ca_item_ticket h3 {
+            margin-bottom: 20px;
+        }
+
+        .ca_item_ticket p {
+            margin-bottom: 10px;
+        }
+
+        .ti_get {
+            background: #fff;
+        }
+
+        .ca_item_ticket p>span {
+            margin: 0 10px;
+        }
+
+        .ca_edit,
+        .ti_add {
+            color: #2e79b6;
+            cursor: pointer;
+        }
+
+        .buyway p span.btn {
+            display: inline-block;
+            color: #fff;
+            height: 40px;
+            line-height: 40px;
+            width: 100px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .buyway p>span:nth-of-type(1) .btn {
+            background: #02c01a;
+        }
+
+        .buyway p span:nth-of-type(2) .btn {
+            background: #00a3f5;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0 10px;
+            background: #f81735;
+            color: #fff;
+
+        }
+
+        .group {
+            margin-bottom: 15px;
+        }
+
+        .group .formInput {
+            width: 400px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0 8px;
+            border: 1px solid #ccc;
+        }
+
+        .group label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .showmodal {
+            padding: 10px 15px;
+        }
+
+        .btn_save,
+        .btn_ticertain,
+        .btn_next {
+            color: #fff;
+        }
+
+        .ti_typeselectbar {
+            margin: 10px 0 20px;
+        }
+
+        .ti_typeselectbar span {
+            cursor: pointer;
+            display: inline-block;
+            width: 135px;
+            text-align: center;
+            height: 45px;
+            line-height: 45px;
+            border: 1px solid #ccc;
+        }
+
+        .edit_ticktcontent .active {
+            border-color: #f81735;
+            border-width: 2px;
+        }
+
+        .edit_ticktcontent .ti_add {
+            margin-left: 106px;
+        }
+
+        .flexpay {
+            display: flex;
+        }
+
+        .ticket_content_list li {
+            float: left;
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            width: 90px;
+            text-align: center;
+            border: 1px solid #ccc;
+            margin: 10px 5px;
+        }
+
+        .ticket_content_list {
+            flex: 1;
+        }
+
+        .addticket {
+            display: none;
+            margin-left: 106px;
+            margin-top: 20px;
+            position: relative;
+            width: 400px;
+        }
+
+        .saveti_btn {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            cursor: pointer;
+        }
+
+        .saveti_btn .btn_edit2,
+        .saveti_btn .btn_del2 {
+            display: none;
+        }
+
+        .step_two,
+        .step_three {
+            display: none;
+        }
+
+        .errortips {
+            margin-left: 20px;
+            color: #f81735;
+            font-weight: bold;
+        }
+       
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="top">
+
+        </div>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <div class="show_box">
+            <div class="show_content">
+                <div class="sidepart"></div>
+                <div class="main_wrapper">
+                    <div class="header">
+                            <span class="retback"> &lt;返回</span>
+                        确认订单
+                    </div>
+                    <div class="address_wrapper">
+                        <div class="ad_ti">
+                            <strong>收货地址</strong>
+                            <div class="addressbtn">新增地址</div>
+
+                        </div>
+                        <div class="ad_con">
+                            <div class="ad_itemlistwrapper">
+                                <div class="ad_itemlist">
+                                    <span class="checkbtn check"></span>
+                                    <div class="add_content">
+                                        <p>
+                                            <span class="add_name">刘德华</span>
+                                            <span class="add_tel">138 8888 8888</span>
+                                            <span class="tag">默认地址</span>
+                                        </p>
+                                        <p class="add_detil">广东广州市白云区黄埔大道168号富春小区A栋4单元3号 </p>
+
+                                    </div>
+                                </div>
+                                <div class="opra_bar">
+                                    <button type="button" class="op_edit">编辑</button>
+                                    <button type="button" class="op_del">删除</button>
+
+                                </div>
+                            </div>
+                            <div class="ad_itemlistwrapper">
+                                <div class="ad_itemlist">
+                                    <span class="checkbtn"></span>
+                                    <div class="add_content">
+                                        <p>
+                                            <span class="add_name">刘德华</span>
+                                            <span class="add_tel">138 8888 8888</span>
+                                        </p>
+                                        <p class="add_detil">广东广州市白云区黄埔大道168号富春小区A栋4单元3号 </p>
+
+                                    </div>
+                                </div>
+                                <div class="opra_bar">
+                                    <button type="button" class="op_edit">编辑</button>
+                                    <button type="button" class="op_del">删除</button>
+
+                                </div>
+
+                            </div>
+                            <div class="ad_itemlistwrapper">
+                                <div class="ad_itemlist">
+                                    <span class="checkbtn"></span>
+                                    <div class="add_content">
+                                        <p>
+                                            <span class="add_name">刘德华</span>
+                                            <span class="add_tel">138 8888 8888</span>
+                                        </p>
+                                        <p class="add_detil">广东广州市白云区黄埔大道168号富春小区A栋4单元3号 </p>
+
+                                    </div>
+                                </div>
+                                <div class="opra_bar">
+                                    <button type="button" class="op_edit">编辑</button>
+                                    <button type="button" class="op_del">删除</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="showicon">展开地址</div>
+                        <div class="hideicon">收起地址</div>
+
+                    </div>
+                    <div class="cart_item">
+                        <div class="ca_item_title">
+                            <span class="check_wrap">
+                                <strong class="shopname">三只松鼠官方旗舰店</strong>
+                            </span>
+                        </div>
+                        <div class="ca_item_content">
+                            <div class="ca_item_list">
+                                <div class="intro">
+
+                                    <a class="com_rn" href="#">
+                                        <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                        <div class="intro_rn">
+                                            <span class="intro_na">三只松鼠 夏威夷果265g零食坚果特产送开 夏威夷果265g零食坚果特产送开口器奶油味 </span>
+                                            <span class="intrp_de"> 颜色：A06白尺码：190/108A/XXL </span>
+                                        </div>
+
+                                    </a>
+                                </div>
+                                <div>
+                                    <strong>
+                                        <em>×</em>
+                                        <span>6</span>
+                                    </strong>
+
+                                </div>
+
+                                <div class="price_content">￥999</div>
+                                <div>
+                                    <button type="button" class="delectItem">删除</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="ca_item_remark">
+                            <p>备注</p>
+                            <input type="text" placeholder="限45字" class="item_remark">
+                            <div class="ca_item_ticket">
+                                <h3 class="get_ti_btn">优惠券&gt;</h3>
+                                <p>店铺优惠：-¥30.00 </p>
+                                <p>平台优惠：-¥50.00</p>
+                            </div>
+                            <div class="ca_item_ticket">
+                                <h3>发票信息</h3>
+                                <p>
+                                    <span>普通发票</span>
+                                    <span>个人</span>
+                                    <span>明细</span>
+                                    <span>
+                                        <button type="button" class="ca_edit">修改</button>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="ca_item_ticket buyway">
+                                <h3>支付方式</h3>
+                                <p>
+                                    <span class="chatpay payway">
+                                        <span class="checkbtn check"></span>
+                                        <span class="btn">微信支付</span>
+                                    </span>
+                                    <span class="apay payway">
+                                        <span class="checkbtn"></span>
+                                        <span class="btn">支付宝支付</span>
+
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cartfooter">
+
+                        <div class="total_count">
+                            <span class="countbar">
+                                <span>合计：</span>
+                                <span>￥
+                                    <em class="totalmoney">999</em>
+                                </span>
+
+                            </span>
+
+                            <a href="payway.html">提交订单</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="outwrapper">
+            <span class="out_bor_tac"></span>
+            <div class="out_wrapper">
+                <h4>平台优惠券</h4>
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>50</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满400可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">
+                        <span class="checkbtn check" name="platform"></span>
+                    </span>
+                </div>
+                <h4>店铺优惠券</h4>
+
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>10</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满100可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">
+                        <span class="checkbtn" name="shop"></span>
+                    </span>
+                </div>
+                <div class="ti_p1">
+                    <span class="ti_exnum">￥
+                        <em>10</em>
+                    </span>
+                    <span class="ti_condition">
+                        <span>满100可用</span>
+                        <span>2018.11.11-2018.11.12</span>
+
+                    </span>
+                    <span class="ti_exnum ti_get">
+                        <span class="checkbtn " name="shop"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="layer hide"></div>
+
+        <div class="showmodal w450">
+            <header>
+                <span class="headertitle">删除商品</span>
+                <span class="btnclose"></span>
+            </header>
+            <div class="content">
+                <div class="content_area">
+
+                    <div class="delcontent">
+                        确定要删除该商品吗？
+                    </div>
+                    <div class="editcontent">
+                        <div class="form">
+                            <div class="group">
+                                <label for="">姓名</label>
+                                <input type="text" class="formInput">
+                            </div>
+                            <div class="group">
+                                <label for="">手机号</label>
+                                <input type="text" class="formInput">
+                            </div>
+                            <div class="group">
+                                <label for="">地区</label>
+                                <input name="" id="sel1" type="text" class="city_input formInput" readonly="readonly">
+                            </div>
+                            <div class="group">
+                                <label for="">详细地址</label>
+                                <input type="text" class="formInput">
+                            </div>
+                            <div class="group">
+                                <label for="">默认地址</label>
+                                <span class="checkbtn check"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit_ticktcontent">
+                        <div class="ti_typeselectbar">
+                            <span class="typeitem active">普通发票</span>
+                            <span class="typeitem">电子普通发票</span>
+                            <span class="typeitem">增值税专用发票</span>
+
+                        </div>
+                        <div class="form">
+                            <div class="step_one">
+                                <div class="group">
+                                    <label for="">发票抬头</label>
+                                    <input type="text" class="formInput active ti_start" readonly="readonly" value="个人">
+                                    <div class="addticket">
+                                        <input type="text" class="formInput  active" placeholder="填写公司发票抬头">
+                                        <div class="saveti_btn">
+                                            <span class="btn_save2">保存</span>
+                                            <span class="btn_edit2">编辑</span>
+                                            <span class="btn_del2">删除</span>
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                                <p class="ti_add">新增单位发票</p>
+                                <div class="group ectpart">
+                                    <label for="">纳税人识别号</label>
+                                    <input type="text" class="formInput taxnum">
+
+                                </div>
+                                <div class="group taxpart">
+                                    <label for="">开票方式</label>
+                                    <input type="text" class="formInput active" readonly="readonly" value="订单完成后开票">
+
+                                </div>
+                                <div class="group flexpay">
+                                    <label for="">发票内容</label>
+                                    <ul class="ticket_content_list">
+                                        <li>明细</li>
+                                        <li>办公用品</li>
+                                        <li>电脑配件</li>
+                                        <li>耗材</li>
+                                        <li>明细</li>
+                                        <li>办公用品</li>
+                                        <li>电脑配件</li>
+                                        <li>耗材</li>
+                                        <li>明细</li>
+                                        <li>办公用品</li>
+                                        <li>电脑配件</li>
+                                        <li>耗材</li>
+                                    </ul>
+                                </div>
+                                <div class="group ectpart">
+                                    <label for="">邮箱</label>
+                                    <input type="text" class="formInput email">
+
+                                </div>
+                            </div>
+                            <div class="step_two">
+                                <div class="group">
+                                    <label for="">单位名称</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                                <div class="group">
+                                    <label for="">纳税人识别码</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                                <div class="group">
+                                    <label for="">注册地址</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                                <div class="group">
+                                    <label for="">注册电话</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                                <div class="group">
+                                    <label for="">开户银行</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                                <div class="group">
+                                    <label for="">银行账户</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                            </div>
+                            <div class="step_three">
+                                <div class="group">
+                                    <label for="">收票人姓名</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                                <div class="group">
+                                    <label for="">收票人手机</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                                <div class="group">
+                                    <label for="">收票人地区</label>
+                                    <input name="" id="sel2" type="text" class="city_input formInput" readonly="readonly">
+                                </div>
+                                <div class="group">
+                                    <label for="">详细地址</label>
+                                    <input type="text" class="formInput">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer">
+                    <button type="button" class="status2 btn_certain ">确定</button>
+                    <button type="button" class="status2 btn_save ">保存</button>
+                    <button type="button" class="status2 btn_ticertain ">保存</button>
+                    <button type="button" class="status2 btn_next " style="display:none;">下一步</button>
+                    <button type="button" class="btn_ret" style="display:none;background: #f3f3f3;">返回</button>
+
+                    <button type="button" class="btn_dismiss">取消</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/cityselect.js"></script>
+    <script>
+
+        var curpage = 0;
+        // 发票纳税号
+
+        $(".btn_next").click(function () {
+            if (curpage === 0) {
+                $(".step_one,.btn_dismiss").hide();
+                $(".step_two,.btn_ret").show();
+                curpage = 1;
+            } else if (curpage === 1) {
+                if (checkInput(".step_two")) {
+                    //  验证
+                    curpage = 2;
+                    $(".step_two,.btn_next").hide();
+                    $(".step_three,.btn_ticertain").show();
+
+
+                }
+            }
+        });
+
+        $(".btn_ret").click(function () {
+            if (curpage === 1) {
+                curpage = 0;
+                $(".step_one,.btn_dismiss").show();
+                $(".step_two,.btn_ret").hide();
+            } else {
+                curpage = 1;
+                $(".step_two,.btn_next").show();
+                $(".step_three,.btn_ticertain").hide();
+            }
+        });
+        function checkInput(target) {
+            $(".errortips").remove();
+            var $html = '<span class="errortips">不能为空</span>';
+            var index = $(".ti_typeselectbar .active").index();
+            if (index == 1) {
+                if ($(".taxnum").val() == "") {
+                    $($html).insertAfter($(".taxnum"));
+                    return false;
+                }
+                if ($(".email").val() == "") {
+                    $($html).insertAfter($(".email"));
+                    return false;
+                }
+
+            } else if (index == 2&&!target) {
+                target = ".step_three";
+            }
+            console.log($(target + " .formInput"));
+            var flag = true;
+            $(target + " .formInput").each(function () {
+                if ($(this).val() == "") {
+                    $($html).insertAfter($(this));
+                    flag = false;
+                    return false;
+                }
+            });
+            if (!flag) {
+                return false;
+            }
+
+            return true;
+
+
+        }
+
+        $(".btn_save2").click(function () {
+            $(".addticket input").attr("disabled", "disabled");
+            $(".btn_edit2,.btn_del2").show();
+            $(".btn_save2").hide();
+        });
+        $(".btn_edit2").click(function () {
+            $(".addticket input").removeAttr("disabled");
+            $(".btn_edit2,.btn_del2").hide();
+            $(".btn_save2").show();
+        });
+        $(".btn_del2").click(function () {
+            $(".addticket input").removeAttr("disabled");
+            $(".addticket input").val("");
+
+            $(".btn_edit2,.btn_del2").hide();
+            $(".btn_save2").show();
+        });
+        $(".ticket_content_list").on("click", "li", function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+        $(".ti_typeselectbar").on("click", ".typeitem", function () {
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".ti_add,.edit_ticktcontent .step_one .group").show();
+            $(".ticket_content_list li").show();
+            $(".btn_next,.step_two,.step_three").hide();
+            $(".btn_ticertain").show();
+            $(".step_one").show();
+            $(".errortips").remove();
+            if ($(this).index() == 0) {
+                $(".ectpart").hide();
+                $(".taxpart").hide();
+
+            } else if ($(this).index() == 1) {
+                $(".taxpart").hide();
+                $(".ectpart").show();
+            } else {
+                $(".ticket_content_list li:gt(0)").hide();
+                $(".ticket_content_list li.active").removeClass("active");
+                $(".ticket_content_list li:eq(0)").addClass("active");
+                $(".edit_ticktcontent .step_one .group,.ti_add").hide();
+                $(".flexpay").show();
+                $(".taxpart").show();
+                $(".btn_next").show();
+                curpage = 0;
+                $(".step_two,.step_three").hide();
+
+                $(".btn_ticertain").hide();
+            }
+        });
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html", "", function () {
+                $(".side_nav_bar>li:eq(0)").addClass("selected");
+            });
+            init_city_select($(".city_input"));
+
+        });
+        // 新增发票抬头
+        $(".ti_add").click(function () {
+            $(this).hide();
+            $(".addticket").show();
+            $(".addticket").prev("input").removeClass("active");
+        });
+        $(".ti_start").focus(function () {
+            $(".ti_add").show();
+            $(".addticket").hide();
+            $(this).addClass("active");
+        });
+        // 修改发票
+        $(".ca_edit").click(function () {
+            $(".content_area>div").hide();
+            $(".edit_ticktcontent").show();
+            $(".headertitle").text("发票信息");
+            $(".layer").removeClass("hide");
+            $("body").css("overflow", "hidden");
+            $(".showmodal").addClass("active");
+            $(".showmodal").removeClass("w450");
+            $(".btn_ticertain").show();
+            $(".btn_save").hide();
+            $(".btn_certain").hide();
+            $(".ti_typeselectbar .typeitem:eq(0)").click();
+
+        });
+
+        $("#searchbar button").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+        // 减少
+        $(".decrease").click(function () {
+            var val = $(this).parent(".num_content").find(".amount_input").val();
+            if (isNaN(val)) {
+                $(this).parent(".num_content").find(".amount_input").val(1);
+            } else {
+                val = Math.floor(val);
+                if (val == 1) {
+                    $(this).parent(".num_content").find(".amount_input").val(1);
+                } else {
+                    $(this).parent(".num_content").find(".amount_input").val(--val);
+
+                }
+
+            }
+        });
+        // 增加
+        $(".increase").click(function () {
+            var val = $(this).parent(".num_content").find(".amount_input").val();
+            if (isNaN(val)) {
+                $(this).parent(".num_content").find(".amount_input").val(1);
+            } else {
+                val = Math.floor(val);
+                $(this).parent(".num_content").find(".amount_input").val(++val);
+
+            }
+        })
+        // 领券
+        $(document).on("click", ".get_ti_btn", function (e) {
+            $(".outwrapper").css({ "left": e.clientX + window.scrollX - 10 + "px", "top": e.clientY + window.scrollY + 30 + "px" });
+            $(".outwrapper").show()
+            e.stopPropagation();
+        });
+        $(document).on("click", "body", function () {
+            $(".outwrapper").hide()
+        });
+        $(document).on("click", ".ad_itemlist .checkbtn", function () {
+            $(".ad_itemlist .checkbtn.check").removeClass("check");
+            $(this).addClass("check")
+        });
+        $(".showicon").click(function () {
+            $(this).hide();
+            $(".hideicon").show();
+            $(".ad_con").css("height", "138px");
+            $(".ad_con .ad_itemlistwrapper:gt(0)").show();
+        });
+        $(".hideicon").click(function () {
+            $(this).hide();
+            $(".showicon").show()
+            $(".ad_con").css("height", "80px");
+            $(".ad_con .ad_itemlistwrapper:gt(0)").hide();
+        });
+        $(".out_wrapper").on("click", ".ti_p1", function (e) {
+
+            e.stopPropagation();
+        });
+        $(".payway").click(function () {
+            $(".payway .check").removeClass("check");
+            $(this).find(".checkbtn").addClass("check");
+        });
+        $(document).on("click", ".ad_itemlistwrapper", function () {
+            $(this).addClass("click").siblings().removeClass("click");
+        });
+        // 删除
+        $(document).on("click", ".delectItem", function () {
+            $(".content_area>div,.btn_ticertain,.btn_next,.btn_ret").hide();
+            $(".delcontent,.btn_dismiss").show();
+            $(".headertitle").text("删除商品");
+            $(".layer").removeClass("hide");
+            $("body").css("overflow", "hidden");
+            $(".showmodal").addClass("active");
+            $(".showmodal").addClass("w450");
+            $(".btn_certain").show();
+            $(".btn_save").hide();
+
+        });
+        $(".btnclose,.btn_dismiss").click(function () {
+            $(".layer").addClass("hide");
+            $("body").css("overflow", "");
+            $(".showmodal").removeClass("active");
+        });
+        $(".btn_ticertain").click(function () {
+            var index = $(".ti_typeselectbar .active").index();
+            if ((index >= 1 && checkInput()) || index == 0) {
+                // 提交
+                alert("提交");
+                $(".layer").addClass("hide");
+                $("body").css("overflow", "");
+                $(".showmodal").removeClass("active");
+            }
+
+        });
+        // 编辑
+        $(document).on("click", ".op_edit", function () {
+            $(".content_area>div").hide();
+            $(".footer button").hide();
+            $(".editcontent").show();
+            $(".headertitle").text("编辑收货地址");
+            $(".showmodal").removeClass("w450");
+            $(".layer").removeClass("hide");
+            $("body").css("overflow", "hidden");
+            $(".showmodal").addClass("active");
+            $(".btn_certain").hide();
+            $(".btn_save,.btn_dismiss").show();
+        });
+        $(".addressbtn").click(function(){
+            $(".content_area>div").hide();
+            $(".footer button").hide();
+            $(".editcontent").show();
+            $(".headertitle").text("新增收货地址");
+            $(".showmodal").removeClass("w450");
+            $(".layer").removeClass("hide");
+            $("body").css("overflow", "hidden");
+            $(".showmodal").addClass("active");
+            $(".btn_certain").hide();
+            $(".btn_save,.btn_dismiss").show();
+        });
+        $(".op_del").click(function(){
+            alert("删除地址");
+        });
+        $(".retback").click(function(){
+            history.go(-1);
+        });
+        $(".showmodal .checkbtn").click(function(){
+            $(this).toggleClass("check");
+        });
+
+        // 优惠券选择
+        $(".out_wrapper .checkbtn").click(function(){
+            if($(this).hasClass("check")){
+                $(this).removeClass("check");
+
+            }else{
+                $(".out_wrapper .checkbtn[name="+$(this).attr("name")+"]").removeClass("check");
+                $(this).addClass("check");
+
+            }
+        });
+    </script>
+</body>
+
+</html>

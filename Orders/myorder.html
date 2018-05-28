@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .searchbtn {
+            background: #f3f3f3;
+            color: #000;
+        }
+
+        .searchbtn.active {
+            background: #f81735;
+            color: #fff;
+        }
+
+        .headerwrapper {
+            width: 100%;
+            background: #fff;
+            height: 130px;
+            padding-top: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main_wrapper {
+            padding: 30px;
+            position: relative;
+
+        }
+
+
+
+        .checkboxbtn {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .shopname {
+            vertical-align: middle;
+        }
+
+        .main_wrapper .select_header>span{
+            text-align: center;
+            width: 10%;
+
+        }
+        .select_header>span:nth-of-type(1){
+            width:40%;
+            
+        }
+
+        .outwrapper {
+            position: absolute;
+            display: none;
+        }
+
+        .out_bor_tac {
+            position: absolute;
+            top: -19px;
+            left: 12px;
+        }
+
+        .out_wrapper,
+        .out_bor_tac {
+            display: block;
+        }
+
+        .out_wrapper {
+            position: unset;
+        }
+        .my_tabber{
+            height: 45px;
+            line-height: 45px;
+            margin-bottom: 30px;
+            
+        }
+        .my_tabber .cur{
+            border-bottom: 4px solid #f81735;
+        }
+        .my_tabber li{
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 40px;
+            cursor: pointer;
+        }   
+        .cart_item{
+            margin-top: 20px;
+            padding:0;
+            border: 1px solid #ccc;
+        }
+        .ca_item_content{
+            padding: 15px 10px;
+        }
+        .ca_item_title{
+            height: 45px;
+            line-height: 45px;
+            background: #f3f3f3;
+            font-size: 14px;
+        }
+        .ca_item_title>span{
+            margin: 0 10px;
+        }
+        .order_date{
+            font-weight: bold;
+        }
+        .cart_container{
+            background: #fff;
+        }
+        .ca_item_list .intro{
+            width: 42%;
+        }
+        .status{
+            font-size: 14px;
+        }
+        .ca_item_list>div{
+            width: 10%;
+        }
+        .ca_item_list {
+    align-items: flex-start;
+}
+.topay{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.op_btn_group a{
+    display: block;
+    font-size: 12px;
+    margin: 5px auto;
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="top">
+
+        </div>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <div class="show_box">
+            <div class="show_content">
+                <div class="sidepart"></div>
+                <div class="main_wrapper">
+                    <div class="my_tabbarBox">
+                        <ul class="my_tabber">
+                            <li class="cur"> 全部</li>
+                            <li>待付款</li>
+                            <li>待发货</li>
+                            <li>待收货</li>
+                            <li>待评价</li>
+                            <li>退款/售后</li>
+                            
+
+                        </ul>
+
+
+
+                    </div>
+                    <div class="select_header">
+                        <span>商品</span>
+                        <span>数量</span>
+                        <span>单价</span>
+                        <span>总金额</span>
+                        <span>状态</span>
+                        <span>操作</span>
+                        <span>其他</span>
+                        
+
+                    </div>
+                    <div class="cart_container">
+                        <div class="cart_item">
+                            <div class="ca_item_title">
+                                <span class="order_date">2017-12-12</span>
+                                <span class="order_number">订单号 2109391642852925</span>
+                                <span class="shopname">三只松鼠官方旗舰店</span>
+                                <span class="ali_logo ww_online"></span>
+
+
+                            </div>
+                            <div class="ca_item_content">
+                                <div class="ca_item_list">
+                                    <div class="intro">
+                                        <a class="com_rn" href="#">
+                                            <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                            <div class="intro_rn">
+                                                <span class="intro_na">三只松鼠 夏威夷果265g零食坚果特产送开 夏威夷果265g零食坚果特产送开口器奶油味 </span>
+                                                <span class="intrp_de"> 颜色：A06白尺码：190/108A/XXL </span>
+                                            </div>
+
+                                        </a>
+
+
+                                    </div>
+                                    <div>
+                                                <em>×</em>
+                                                <span>6</span>
+        
+                                    </div>
+                                    <div class="perprice_content"><strong>￥999</strong></div>
+                                    <div class="price_content">￥999</div>
+                                    <div class="status">等待卖家付款</div>
+                                    <div class="op_btn_group">
+                                        
+                                        <a href="" class="btn-primary topay">付款</a>
+                                        <a href="" class="cancelItem">取消订单</a>
+                                        <a href="order_detail.html" class="Itemdetail">订单详情</a>
+                                        
+                                    </div>
+                                    <div class="op_others"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <div class="cartfooter">
+                    
+                        <div class="total_count">
+                            <span class="countbar">
+                                <span>合计：</span>
+                                <span>￥
+                                    <em class="totalmoney">999</em>
+                                </span>
+
+                            </span>
+
+                            <button type="button">结算</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+     
+    </div>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html","",function(){
+                $(".side_nav_bar>li:eq(1)").addClass("selected");
+            });
+           
+
+        });
+        // 取消订单
+       $(".cancelItem").click(function(){
+        alert("取消订单");
+       });
+       $(".my_tabber li").click(function(){
+        $(this).addClass("cur").siblings().removeClass("cur");
+       });
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+.shop_bar_img {
+    width: 1230px;
+    margin: 40px auto;
+}
+
+.shop_bar_img img {
+    width: 100%;
+}
+
+.coupon_container {
+    width: 1230px;
+    margin: 0 auto;
+}
+
+.coupon_container ul {
+    display: flex;
+}
+
+.coupon_container li {
+    width: 33%;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.coupon_container li:last-of-type(1) {
+    margin-right: 0px;
+}
+
+.sh_show_wrapper {
+    width: 990px;
+    margin: 30px auto;
+}
+
+.sh_show_wrapper img {
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+}
+
+.item_top img {
+    display: block;
+}
+
+.item_show {
+    margin: 30px auto;
+    overflow: hidden;
+    display: flex;
+}
+
+.item_show .sm_mg_left {
+    float: left;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+
+.item_show .sm_mg_left img {
+    /* width: 100%; */
+}
+
+.item_show .sm_mg_right {
+    float: right;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.item_show::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.sh_name {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.sm_mg_per {
+    width: 33%;
+    margin-right: 20px;
+}
+
+.sm_mg_per:last-of-type(1) {
+    margin-right: 0px;
+}
+
+.sh_name span {
+    display: block;
+    font-weight: bold;
+}
+
+.sh_price {
+    color: #f91032;
+}
+
+.sm_mg_big img {
+    max-width: 560px;
+}
+
+.sm_mg_small img {
+    max-width: 399px;
+}
+
+.sm_type_wrapper {
+    width: 100%;
+    margin: 0 auto;
+    background: #f3f3f3;
+}
+
+.sm_type_inner {
+    width: 1230px;
+    margin: 0 auto;
+    overflow: hidden;
+    
+}
+
+.sm_type_label {
+    background: #fd882a;
+    color: #fff;
+    width: 400px;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.sm_type{
+    margin-top: 60px;
+}
+.type_container_list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 25px auto;
+}
+.type_container_list .ty_item{
+    text-align: center;
+    width: 236px;
+    background: #fff;
+    padding: 15px 0 0;
+    margin: 0 5px 15px 5px;
+}
+.sh_name{
+    padding: 0 30px;
+}
+.type_container_list .ty_item h4{
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+    text-overflow: ellipsis;
+}

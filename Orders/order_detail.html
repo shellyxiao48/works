@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单详情</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .searchbtn {
+            background: #f3f3f3;
+            color: #000;
+        }
+
+        .searchbtn.active {
+            background: #f81735;
+            color: #fff;
+        }
+
+        .headerwrapper {
+            width: 100%;
+            background: #fff;
+            height: 130px;
+            padding-top: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main_wrapper {
+            padding: 0;
+            position: relative;
+            background: #f3f3f3;
+            margin: 35px 0;
+        }
+
+
+
+        .checkboxbtn {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .shopname {
+            vertical-align: middle;
+        }
+
+        .main_wrapper .select_header>span{
+            text-align: center;
+            width: 10%;
+
+        }
+        .select_header>span:nth-of-type(1){
+            width:40%;
+            
+        }
+
+        .outwrapper {
+            position: absolute;
+            display: none;
+        }
+
+        .out_bor_tac {
+            position: absolute;
+            top: -19px;
+            left: 12px;
+        }
+
+        .out_wrapper,
+        .out_bor_tac {
+            display: block;
+        }
+
+        .out_wrapper {
+            position: unset;
+        }
+       
+        .cart_item{
+            margin-top: 20px;
+            padding:0;
+            border: 1px solid #ccc;
+        }
+        .ca_item_content{
+            padding: 15px 10px;
+        }
+        .ca_item_title{
+            height: 45px;
+            line-height: 45px;
+            background: #f3f3f3;
+            font-size: 14px;
+        }
+        .ca_item_title>span{
+            margin: 0 10px;
+        }
+        .order_date{
+            font-weight: bold;
+        }
+        .cart_container{
+            background: #fff;
+        }
+        .ca_item_list .intro{
+            width: 42%;
+        }
+        .status{
+            font-size: 14px;
+        }
+        .ca_item_list>div{
+            width: 10%;
+        }
+        .ca_item_list {
+    align-items: flex-start;
+}
+.topay{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.op_btn_group a{
+    display: block;
+    font-size: 12px;
+    margin: 5px auto;
+
+}
+.address_wrapper{
+    background: #fff;
+    margin: 0 0 10px 0;
+    padding: 20px 0 0;
+}
+.main_wrapper .header {
+    background: #fff;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    font-weight: 600;
+    padding: 0 30px;
+}
+.main_wrapper .header>span {
+    float: left;
+    padding: 0 10px;
+    cursor: pointer;
+}
+.ad_con{
+    margin: 0;
+}
+.cartdetail_wrapper{
+    background: #fff;
+    padding: 20px;
+}
+.ca_item_remark{
+    margin: 20px 0 10px;
+}
+.ca_item_remark P{
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+.orderdetail_msg{
+    margin: 10px 0 0;
+    background: #fff;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.msglist p label{
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+}
+.msglist p span{
+    display: inline-block;
+    text-align: right;
+    width: 100px;
+    
+}
+.msglist .totalcount{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.msglist .totalcount span{
+   color: #f81735;
+}
+.order_status{
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background: #f81735;
+    padding: 0 40px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="top">
+
+        </div>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <div class="show_box">
+            <div class="show_content">
+                <div class="sidepart"></div>
+                <div class="main_wrapper">
+                    <div class="header">
+                        <span class="retback"> &lt;返回</span>
+                        订单详情
+                    </div>
+                    <div class="order_status">
+                           <span>等待买家处理 </span>  
+                           <span>还剩2天23小时自动关闭 </span>   
+                    </div>
+                    <div class="address_wrapper">
+                        <div class="ad_ti">
+                            <strong>收货地址</strong>
+                        </div>
+                        <div class="ad_con">
+                            <div class="ad_itemlistwrapper">
+                                <div class="ad_itemlist">
+                                    <div>
+                                        <p>
+                                            <strong>
+                                                    <span class="add_name">刘德华</span>
+                                                    <span class="add_tel">138 8888 8888</span>
+                                            </strong>
+                                           
+                                        </p>
+                                        <p class="add_detil">广东广州市白云区黄埔大道168号富春小区A栋4单元3号 </p>
+
+                                    </div>
+                                </div>
+                            
+                            </div>
+                     
+                          
+                        </div>
+                       
+
+                    </div>
+                    <div class="cartdetail_wrapper">
+                            <div class="select_header">
+                                    <span>商品</span>
+                                    <span>数量</span>
+                                    <span>单价</span>
+                                    <span>总金额</span>
+                                    <span>状态</span>
+                                    <span>操作</span>
+                                    <span>其他</span>
+                                    
+            
+                                </div>
+                                <div class="cart_container">
+                                    <div class="cart_item">
+                                        <div class="ca_item_title">
+                                            <span class="order_date">2017-12-12</span>
+                                            <span class="order_number">订单号 2109391642852925</span>
+                                            <span class="shopname">三只松鼠官方旗舰店</span>
+                                            <span class="ali_logo ww_online"></span>
+            
+            
+                                        </div>
+                                        <div class="ca_item_content">
+                                            <div class="ca_item_list">
+                                                <div class="intro">
+                                                    <a class="com_rn" href="#">
+                                                        <img src="../img/shopimg/shopimg.png" alt="" class="commodity_img">
+                                                        <div class="intro_rn">
+                                                            <span class="intro_na">三只松鼠 夏威夷果265g零食坚果特产送开 夏威夷果265g零食坚果特产送开口器奶油味 </span>
+                                                            <span class="intrp_de"> 颜色：A06白尺码：190/108A/XXL </span>
+                                                        </div>
+            
+                                                    </a>
+            
+            
+                                                </div>
+                                                <div>
+                                                            <em>×</em>
+                                                            <span>6</span>
+                    
+                                                </div>
+                                                <div class="perprice_content"><strong>￥999</strong></div>
+                                                <div class="price_content">￥999</div>
+                                                <div class="status">等待卖家付款</div>
+                                                <div class="op_btn_group">
+                                                    
+                                                    <a href="" class="btn-primary topay">付款</a>
+                                                    <a href="" class="cancelItem">取消订单</a>
+                                                    
+                                                </div>
+                                                <div class="op_others"></div>
+                                            </div>
+            
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="ca_item_remark">
+                                            <p>备注</p>
+                                            <p>请尽快发货</p>
+                                            
+                                        </div>
+                                  
+                                </div>
+                    </div>
+                    <div class="orderdetail_msg">
+                        <div class="msglist">
+                            <p>发票信息</p>
+                            <p>发票类型： 增值税专用发票</p>
+                            <p>单位名称： asf </p>
+                            <p>纳税人识别号： 123456789098765</p>
+                            <p>地 址(电话)： www ******</p>
+                            <p>开户行：gggg1263816254914712</p>   
+                        </div>
+                           
+                        <div class="msglist">
+                                <p> <label>商品总额：</label><span>¥600.00</span></p>
+                                <p> <label>税费：</label><span> ¥50.00 </span></p>
+                                <p> <label>运费：</label><span>¥0.00</span></p>
+                                <p> <label>店铺优惠：</label><span>-¥30.00</span></p>
+                                <p> <label>平台优惠：</label><span> -¥50.00</span></p>
+                                <p class="totalcount"> <label>实付款：</label><span>    ¥ 570.00</span></p>
+                              
+                            </div>
+                    </div>
+                  
+                </div>
+            </div>
+
+
+        </div>
+     
+    </div>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html","",function(){
+                $(".side_nav_bar>li:eq(1)").addClass("selected");
+            });
+            // $(".footer").load("../common/footer.html");
+            // $(".side_sort_bar").load("../common/side_sort_bar.html");
+
+        });
+        $(".retback").click(function(){
+            history.go(-1);
+        });
+       
+    </script>
+</body>
+
+</html>

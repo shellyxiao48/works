@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章列表页</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <style>
+        article{
+            height: 100%;
+            background: #f5f5f5;
+            position: absolute;
+            width: 100%;
+        }
+        article.list    .wrap{
+            display: flex;
+            background: #fff;
+            width: 1230px;
+            height: 650px;
+            margin: 35px auto 20px;
+
+        }
+        article.list .wrap   h2{
+           padding-left: 20px;
+           font-weight: normal;
+
+        }
+        article.list .header{
+            background: #fff;
+        }
+
+        article.list .wrap   .content{
+             padding: 40px;
+         }
+        article.list .wrap   .content   ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        article.list .wrap   .content   ul>li{
+             border: 1px solid #ccc;
+             border-radius: 8px;
+             width: 20%;
+             margin: 20px;
+         }
+        article.list .wrap   .content  ul>li>img{
+            display: block;
+            border-radius: 8px;
+            width: 100%;
+        }
+        article.list .wrap   .content ul>li>label{
+            font-size: 18px;
+            font-weight: 700;
+            padding: 10px 20px;
+            overflow: hidden;
+            display: -webkit-box;
+            display: box;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            max-height: 42px;
+        }
+        article.list .wrap   .content   ul>li>span{
+             display: block;
+             padding: 10px 20px;
+             color: #ccc;
+         }
+
+    </style>
+</head>
+<body>
+<article class="list">
+    <section class="top">
+
+    </section>
+    <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+   <section class="wrap">
+       <div class="sidepart">
+
+       </div>
+       <div class="content">
+           <h2>
+               推荐课程
+           </h2>
+           <ul>
+               <li>
+                   <img src="http://resource.3uol.com/images/ueditor/20170719/6363605481577934616122306.jpg" alt="">
+                   <label for="">科大附近的客服即可健康地方大哭健康的，方法即可几多，就看到附近分框架</label>
+                   <span>120人已学</span>
+               </li>
+               <li>
+                   <img src="http://resource.3uol.com/images/ueditor/20170719/6363605481577934616122306.jpg" alt="">
+                   <label for="">科大附近的客服即可健康地方大哭健康的，方法即可几多，就看到附近分框架</label>
+                   <span>120人已学</span>
+               </li>
+               <li>
+                   <img src="http://resource.3uol.com/images/ueditor/20170719/6363605481577934616122306.jpg" alt="">
+                   <label for="">科大附近的客服即可健康地方大哭健康的，方法即可几多，就看到附近分框架</label>
+                   <span>120人已学</span>
+               </li>
+               <li>
+                   <img src="http://resource.3uol.com/images/ueditor/20170719/6363605481577934616122306.jpg" alt="">
+                   <label for="">科大附近的客服即可健康地方大哭健康的，方法即可几多，就看到附近分框架</label>
+                   <span>120人已学</span>
+               </li>
+               <li>
+                   <img src="http://resource.3uol.com/images/ueditor/20170719/6363605481577934616122306.jpg" alt="">
+                   <label for="">科大附近的客服即可健康地方大哭健康的，方法即可几多，就看到附近分框架</label>
+                   <span>120人已学</span>
+               </li>
+               <li>
+                   <img src="http://resource.3uol.com/images/ueditor/20170719/6363605481577934616122306.jpg" alt="">
+                   <label for="">科大附近的客服即可健康地方大哭健康的，方法即可几多，就看到附近分框架</label>
+                   <span>120人已学</span>
+               </li>
+           </ul>
+       </div>
+   </section>
+
+</article>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".top").load("../common/topnav.html");
+        $(".sidepart").load("../common/sidebaar.html");
+      
+
+        // $(".side_nav_bar>li h4").click(function(){
+        //     $(this).next("ul").slideToggle();
+        // });
+    })
+</script>
+</body>
+</html>

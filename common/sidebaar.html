@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+            <ul class="side_nav_bar">
+                <li>
+                    <h4><a href="../shopcart/cart.html"><span class="labelicon"></span>购物车</a></h4>
+                </li>
+                <li >
+                    <h4><a href="../Orders/myorder.html"><span class="labelicon"></span>我的订单</a></h4>
+                </li>
+                <li >
+                    <h4><a href="#">   <span class="labelicon"></span>微邮</a></h4>
+                </li>
+                <li >
+                    <h4><span class="labelicon"></span>收藏</h4>
+                    <ul>
+                        <li ><a href="../collect/item_collect.html">收藏商品</a></li>
+                        <li><a  href="../collect/shop_collect.html">收藏店铺</a></li>
+                        <li><a href="../collect/list_collect.html">收藏目录</a> </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <h4>
+                       <a href="../footmark/myfoot.html"><span class="labelicon"></span>足迹</a> </h4>
+                </li>
+                <li>
+                    <h4>
+                        <span class="labelicon"></span>设置</h4>
+                    <ul>
+                        <li><a href="../buyer/base_message.html">基本信息</a></li>
+                        <li><a href="../buyer/address.html">收货地址</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <script>
+                $(document).ready(function(){
+                    $(".side_nav_bar li h4").click(function(){
+                        $(this).next("ul").slideToggle();
+                    });
+                    
+                });
+            </script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地址信息</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: #f3f3f3;
+        }
+
+        article {
+            height: 100%;
+            background: #f5f5f5;
+            position: absolute;
+            width: 100%;
+        }
+
+        article.baseMessage .wrap {
+            display: flex;
+            background: #fff;
+            width: 1230px;
+            height: 850px;
+            margin: 35px auto 20px;
+
+        }
+
+        article.baseMessage .wrap h2 {
+            padding-left: 20px;
+            font-weight: normal;
+
+        }
+
+        article.baseMessage .header {
+            background: #fff;
+        }
+
+        article.baseMessage .wrap .content {
+            width: 100%;
+            padding: 20px 40px 20px 40px;
+        }
+
+        .main_wrapper {
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            transform: translate3d(0, 0%, 0);
+            background: transparent;
+        }
+
+        .modal-body .flex_div {
+            margin: 20px 0px;
+            font-size: 16px;
+            padding-left: 20px;
+        }
+
+        .modal-body .flex_div label {
+            width: 100px;
+            position: relative;
+            top: 8px;
+
+        }
+
+        .ad_ti .addressbtn {
+            position: absolute;
+            right: 15px;
+            top: 0px;
+            background: #f81735;
+            color: #fff;
+            width: 100px;
+            text-align: center;
+        }
+
+        .ad_con {
+            height: auto;
+        }
+
+        .ad_itemlist {
+            display: flex;
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0 10px;
+            background: #f81735;
+            color: #fff;
+        }
+        .address_wrapper .ad_itemlistwrapper{
+            display: block;
+        }
+        .btn-default{
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <article class="baseMessage">
+        <section class="top">
+
+        </section>
+        <div class="headerwrapper">
+            <div id="headerCon">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="">
+                </div>
+
+                <div id="searchbar">
+
+                    <button type="button" class="searchbtn allBtn active">买家</button>
+                    <button type="button" class="searchbtn currShopBtn">卖家</button>
+                </div>
+            </div>
+        </div>
+        <section class="wrap">
+            <div class="sidepart">
+
+            </div>
+            <div class="main_wrapper">
+
+
+                <div class="address_wrapper">
+                    <div class="ad_ti">
+                        <strong>收货地址</strong>
+                        <div class="addressbtn" onclick="add()">新增地址</div>
+
+                    </div>
+                    <div class="ad_con">
+                            <div class="ad_itemlistwrapper">
+                                <div class="ad_itemlist">
+        
+                                    <div class="add_content">
+                                        <p>
+                                            <span class="add_name">刘德华</span>
+                                            <span class="add_tel">138 8888 8888</span>
+                                            <span class="tag">默认地址</span>
+                                        </p>
+                                        <p class="add_detil">广东广州市白云区黄埔大道168号富春小区A栋4单元3号 </p>
+        
+                                    </div>
+                                </div>
+                                <div class="opra_bar">
+                                    <button type="button" class="op_edit">编辑</button>
+                                    <button type="button" class="op_del">删除</button>
+        
+                                </div>
+                            </div>
+                            <div class="ad_itemlistwrapper">
+                                <div class="ad_itemlist">
+                                    <div class="add_content">
+                                        <p>
+                                            <span class="add_name">刘德华</span>
+                                            <span class="add_tel">138 8888 8888</span>
+                                        </p>
+                                        <p class="add_detil">广东广州市白云区黄埔大道168号富春小区A栋4单元3号 </p>
+        
+                                    </div>
+                                </div>
+                                <div class="opra_bar">
+                                    <button type="button" class="op_edit">编辑</button>
+                                    <button type="button" class="op_del">删除</button>
+        
+                                </div>
+        
+                            </div>
+                            <div class="ad_itemlistwrapper">
+                                <div class="ad_itemlist">
+                                    <div class="add_content">
+                                        <p>
+                                            <span class="add_name">刘德华</span>
+                                            <span class="add_tel">138 8888 8888</span>
+                                        </p>
+                                        <p class="add_detil">广东广州市白云区黄埔大道168号富春小区A栋4单元3号 </p>
+        
+                                    </div>
+                                </div>
+                                <div class="opra_bar">
+                                    <button type="button" class="op_edit">编辑</button>
+                                    <button type="button" class="op_del">删除</button>
+        
+                                </div>
+        
+                            </div>
+                        </div>
+                </div>
+              
+
+
+            </div>
+        </section>
+
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            编辑收获地址
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div style="display: flex" class="flex_div">
+                            <label for="">姓名</label>
+                            <input type="text" class="form-control" placeholder="twitterhandle">
+                        </div>
+                        <div style="display: flex" class="flex_div">
+                            <label for="">手机号码</label>
+                            <input type="text" class="form-control" placeholder="twitterhandle">
+                        </div>
+                        <div style="display: flex" class="flex_div">
+                            <label for="">地区</label>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div style="display: flex" class="flex_div">
+                            <label for="">详细地址</label>
+                            <input type="text" class="form-control" placeholder="twitterhandle">
+                        </div>
+                        <div style="display: flex" class="flex_div">
+                            <label for="">默认地址</label>
+                            <input type="checkbox" style="position: relative;
+    top: 10px;">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            保存
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal -->
+        </div>
+
+    </article>
+
+    <script>
+        $(document).ready(function () {
+            $(".top").load("../common/topnav.html");
+            $(".sidepart").load("../common/sidebaar.html", "", function () {
+                $(".side_nav_bar>li:eq(5) li:eq(1)").addClass("selected");
+
+            });
+
+
+        })
+        function add() {
+            $('#myModal').modal('show')
+        }
+        $(".op_edit").click(function(){
+            $('#myModal').modal('show')
+
+        });
+        $(".op_del").click(function () {
+            var result = confirm("你确定删除？");
+            if (result) {
+                $(this).parents(".ad_itemlistwrapper ").remove();
+            }
+        });
+        $(document).on("click", ".ad_itemlistwrapper", function () {
+            $(this).addClass("click").siblings().removeClass("click");
+        });
+    </script>
+</body>
+
+</html>
